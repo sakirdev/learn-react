@@ -1,0 +1,5 @@
+React Course Guidelines (basic)
+
+1. create project folder
+2. open project folder in vscode
+3. 
