@@ -2,11 +2,3 @@ React Course Guidelines (basic)
 
 1. create project folder
 2. open project folder in vscode
-3. lesson learned in this tutorial:
-    a. React = external library that helps us create website easier
-    b. Load the React external library
-    c. Set up React and use .render()
-    d. Reviewed basics of HTML and Javascript
-    e. JSX = enhanced version of Javascript
-    f. Created element directly with JSX
-    g. Insert values into JSX elements
