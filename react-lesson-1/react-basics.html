@@ -11,10 +11,34 @@
     <script src="https://unpkg.com/supersimpledev@8.6.4/external-library.js"></script>
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <!-- 
+        - babel is used to translate any language into javascript
+        - in React, we are using JSX, advanced version of Javascript, babel is used to translate this 
+    -->
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
+
+        // below is an example of JSX where Javascript and HTML code are written together
+        const button = <button>hello</button>;
+        const paragraph = <p>paragraph of texts</p>;
+
+        // div element is used to contain multiple elements
+        const div = (
+            <div>
+                <button>hello</button>
+                <p>paragraph of texts</p>
+                {/* below is an example of inserting value inside an element */}
+                <p>paragraph of texts {2 + 4}</p>
+            </div>
+        );
+
         const container = document.querySelector(".js-container");
-        ReactDOM.createRoot(container).render("Welcome to React Course")
+        // below is an example of rendering 1 html element
+        // ReactDOM.createRoot(container).render(paragraph);
+
+        // below is an example of rendering multiple html element
+        ReactDOM.createRoot(container).render(div);
     </script>
 </body>
+
 </html>
