@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chatbot</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        /*
+            1. Component is a piece of website
+            2. Component is created via function that returns html element
+        */
+        function ChatInput() {
+            return (
+                /* 
+                    Instead of using div element as parent to group html element, we can use fragment (<></>)
+                    to group element without creating unnecessary div
+                */
+                <>
+                    <input
+                        placeholder="Send a message to Chatbot"
+                        size="30"
+                    />
+                    <button>Send</button>
+                </>
+            );
+        }
+
+        /* Every component have their own receivable object called props (standard nomenclature) */
+        function ChatMessage(props) {
+            const message = props.message;
+            const sender = props.sender;
+            /* 
+                Below is the shortcut to assigned props key-value into variable, called destructuring
+                const { message, sender } = props;
+
+                Other way to further cutting the code short, is by specifying the function's attribute
+                directly to the props attribute
+                Example : function ChatMessage({ message, sender}) {}
+                - this allows direct usage of attribute as Javascript automatically create variable for said properties
+            */
+
+            // TAG: if statement 1
+            if (sender === "robot") {
+                return (
+                    <div>
+                        <img src="/Lessons/Lesson-02/assets/robot.png" width="50" />
+                        {message}
+                    </div>
+                );
+            }
+
+            return (
+                /* div is a block element, a block element always take the entire line for itself */
+                <div>
+                    {/*  Below is the shortcut for if statement (refer if statement 1) inside JSX using guard operator (&&)
+                        Example: {sender === "robot" && <img src="/Lessons/Lesson-02/assets/robot.png" width="50" />}
+                    */}
+                    {message}
+                    <img src="/Lessons/Lesson-02/assets/user.png" width="50" />
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <>
+                    {/* 
+                Option 1 to display component 
+                {ChatInput()} Q
+                Option 2 to display component <ChatInput /> ; abreviation to <ChatInput></ChatInput> 
+                */}
+                    <ChatInput />
+                    {/* Any attributes passed to the component are saved inside the components properties, Object called props */}
+                    <ChatMessage
+                        message="hi Chatbot"
+                        sender="user"
+                    />
+                    <ChatMessage
+                        message="Hello! how can I help you?"
+                        sender="robot"
+                    />
+                    <ChatMessage
+                        message="can you get me today's date?"
+                        sender="user"
+                    />
+                    <ChatMessage
+                        message="Today is September 27"
+                        sender="robot"
+                    />
+                </>
+            );
+        }
+
+
+        const container = document.querySelector(".js-container");
+        ReactDOM.createRoot(container).render(<App/>);
+    </script>
+</body>
+
+</html>

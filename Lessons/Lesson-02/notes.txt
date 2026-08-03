@@ -1,0 +1,9 @@
+Lesson learned in this tutorial:
+    a. Component = a piece of the website
+    b. Component = create our own HTML elements
+    c. Started the Chatbot project
+    d. Split the Chatbot into <ChatInput/> and <ChatMessage />
+    e. Props = make components reusable
+    f. Destructuring, Guard Operator (&&)
+    g. Code cleanup
+    h. Created <App> component
