@@ -1,0 +1,10 @@
+Lesson learned in this tutorial:
+    a. Save the data (using arrays and objects)
+    b. Generate the HTML (using .map() and key prop)
+    c. Make it interactive, using onClick and onChange
+    d. State = data that changes over time, and is connected to the HTML
+    e. Update function = update the state and update the HTML
+    f. Array destructuring
+    g. Lifting the State up = share state between components
+    h. Made <ChatInput> interactive
+    i. Got responses from the Chatbot
