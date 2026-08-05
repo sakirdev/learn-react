@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise 3h</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function NameInput({ name, setName }) {
+
+            function inputName(event) {
+                setName(event.target.value);
+            }
+
+            function resetInput() {
+                setName("");
+            }
+
+            function exampleInput() {
+                setName("Syakir");
+            }
+
+            return (
+                <>
+                    <input
+                        placeholder="Type a name here"
+                        size="50"
+                        onChange={inputName}
+                        value={name}
+                    />
+                    <button onClick={resetInput}>Reset</button>
+                    <button onClick={exampleInput}>Example</button>
+                </>
+            );
+        }
+
+        function Result({ name }) {
+            return (
+                <p>Hello, {name}</p>
+            );
+        }
+
+        function App() {
+            const [name, setName] = React.useState("");
+
+            return (
+                <>
+                    <NameInput name={name} setName={setName} />
+                    <Result name={name} />
+                </>
+            );
+        }
+
+        const container = document.querySelector(".js-container");
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+
+</html>
