@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise 3j</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function ChatInput({ chatMessages, setChatMessages }) {
+
+            const [inputText, setInputText] = React.useState("");
+
+            function saveInputText(event) {
+                setInputText(event.target.value);
+            }
+
+            function sendChatMessage() {
+                const newChatMessages = [
+                    ...chatMessages,
+                    {
+                        message: inputText,
+                        sender: "user",
+                        id: crypto.randomUUID()
+                    }
+                ];
+
+                setChatMessages(newChatMessages);
+
+                const response = Chatbot.getResponse(inputText);
+
+                setChatMessages([
+                    ...newChatMessages,
+                    {
+                        message: response,
+                        sender: "robot",
+                        id: crypto.randomUUID()
+                    }
+                ]);
+
+                setInputText("");
+            }
+
+            function handleKeyDown(event) {
+                if (event.key === "Enter" && inputText !== "") {
+                    sendChatMessage();
+                } else if (event.key === "Escape") {
+                    setInputText("");
+                }
+            }
+
+            return (
+                <>
+                    <input
+                        placeholder="Send a message to Chatbot"
+                        size="50"
+                        value={inputText}
+                        onChange={saveInputText}
+                        onKeyDown={handleKeyDown}
+                    />
+                    <button
+                        onClick={sendChatMessage}
+                        disabled={inputText !== "" ? 0 : 1}
+                    >Send</button>
+                </>
+            );
+        }
+
+        function ChatMessages({ chatMessages }) {
+            const messages = chatMessages.map((chatMessage) => {
+                return (
+                    <ChatMessage
+                        message={chatMessage.message}
+                        sender={chatMessage.sender}
+                        key={chatMessage.id}
+                    />
+                );
+            });
+
+            return (
+                <>
+                    {messages}
+                </>
+            );
+        }
+
+        function ChatMessage({ message, sender }) {
+            return (
+                <div>
+                    {sender === "robot" && (
+                        <img src="/Exercises/Lesson-03/assets/robot.png" width="50" />
+                    )}
+                    {message}
+                    {sender === "user" && (
+                        <img src="/Exercises/Lesson-03/assets/user.png" width="50" />
+                    )}
+                </div>
+            );
+        }
+
+        function App() {
+            const [chatMessages, setChatMessages] = React.useState([]);
+
+            return (
+                <>
+                    <ChatInput
+                        chatMessages={chatMessages}
+                        setChatMessages={setChatMessages}
+                    />
+                    <ChatMessages
+                        chatMessages={chatMessages}
+                    />
+                </>
+            );
+        }
+
+        const container = document.querySelector(".js-container");
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+
+</html>
