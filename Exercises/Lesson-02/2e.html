@@ -11,20 +11,18 @@
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-        function Product() {
+        function ProductDetails() {
             return (
                 <>
                     <p>Cotton Socks</p>
                     <p>Price: $10.90</p>
+                    <button>Add to cart</button>
                 </>
             );
         }
         function App() {
             return (
-                <>
-                    <Product />
-                    <button>Add to cart</button>
-                </>
+                <ProductDetails />
             );
         }
         const container = document.querySelector(".js-container");
