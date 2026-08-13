@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Exercise 4d</title>
+    <title>Exercise 4e</title>
     <style>
         body {
             font-family: Arial;
@@ -13,8 +13,8 @@
         }
 
         .login-input {
-            margin-bottom: 10px;
             padding: 10px 15px;
+            margin-bottom: 10px;
             border-radius: 5px;
             border-width: 1px;
             width: 200px;
@@ -22,13 +22,21 @@
 
         .login-button {
             background-color: rgb(0, 123, 255);
+            border-radius: 5px;
             color: white;
             border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
             margin-right: 5px;
-            cursor: pointer;
             margin-top: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .show-button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-width: 1px;
+            margin-left: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -42,6 +50,12 @@
     <script type="text/babel">
 
         function LoginForm() {
+            const [showPassword, setShowPassword] = React.useState(true);
+
+            function toggleShowPassword() {
+                setShowPassword(!showPassword);
+            }
+
             return (
                 <>
                     <div>
@@ -54,8 +68,12 @@
                         <input
                             className="login-input"
                             placeholder="Password"
-                            type="password"
+                            type={showPassword ? "password" : "text"}
                         />
+                        <button
+                            className="show-button"
+                            onClick={toggleShowPassword}
+                        >{showPassword ? "Show" : "Hide"}</button>
                     </div>
                     <button className="login-button">Login</button>
                     <button className="login-button">Sign up</button>
