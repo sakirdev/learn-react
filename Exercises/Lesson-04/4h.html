@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise 4h</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function App() {
+            const [counter, setCounter] = React.useState(0);
+            const counterRef = React.useRef(null);
+
+            function addCounter() {
+                setCounter(counter + 1);
+            }
+
+            function resetCounter() {
+                setCounter(0);
+            }
+
+            function startAutoCounter() {
+                const buttonElem = counterRef.current;
+                if (buttonElem) {
+                    setInterval(() => {
+                        buttonElem.click();
+                    }, 1000);
+                }
+            }
+
+            return (
+                <>
+                    <button
+                        ref={counterRef}
+                        onClick={addCounter}
+                    >Clicked {counter} {counter < 2 ? "time" : "times"}</button>
+                    <button
+                        onClick={resetCounter}
+                    >Reset</button>
+                    <button
+                        onClick={startAutoCounter}
+                    >Auto Click</button>
+                </>
+            );
+        }
+
+        const container = document.querySelector(".js-container");
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+
+</html>
