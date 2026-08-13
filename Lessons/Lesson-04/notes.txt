@@ -1,0 +1,10 @@
+Lesson learned in this tutorial:
+    a. CSS with React
+    b. Styled the Chatbot project
+    c. Flexbox = create a flexible layout
+    d. Ternary operator (?:) = if-else statement directly in the JSX
+    e. Hooks = insert React features into a component
+    f. useEffect = run some code after component is created or updated
+    g. useRef = save an HTML element from the component
+    h. Created the auto-scroll feature
+    i. Got responses from the Chatbot
