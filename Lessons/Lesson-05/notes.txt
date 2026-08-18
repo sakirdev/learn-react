@@ -1,0 +1,10 @@
+Lesson learned in this tutorial:
+    a. Proper React setup (using command line, npm, and Vite)
+    b. Command line = gives command to our computer
+    c. NPM = download and use external libraries (or packages)
+    d. create-vite Package = helps us create a Proper React Setup
+    e. Moved our Chatbot project into the new React Setup
+    f. ESLint = highlights problem in our Javascript code
+    g. JavaScript Modules = separate our code into different files
+    h. Separated each component into its own .jsx and .css files
+   

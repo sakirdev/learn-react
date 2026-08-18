@@ -2,7 +2,15 @@ React Course Guidelines (basic)
 
 1. create project folder
 2. open project folder in vscode
-
+3. install create-vite (command: npm install create-vite@<version number>)
+4. run create-vite (command: create-vite), select :
+    a. enter project name
+    b. select React framework
+    c. select Javascript variant
+5. create-vite will create an empty React project in target directory
+6. run npm install inside project directory, this command will install all packages listed inside package.json
+   along with all the dependecies
+7. run npm run dev to host created project locally
 
 Node
 

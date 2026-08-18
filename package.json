@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "supersimpledev": "^8.6.4"
+    "create-vite": "^6.5.0"
   }
 }
