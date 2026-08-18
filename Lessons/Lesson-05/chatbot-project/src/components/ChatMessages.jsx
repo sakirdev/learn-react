@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { ChatMessage } from "./ChatMessage";
 import "./ChatMessages.css";
 
-function ChatMessages({ chatMessages, textInput }) {
+function ChatMessages({ chatMessages }) {
   /*
                 1. useRef = automatically save an HTML element from the component
             */
