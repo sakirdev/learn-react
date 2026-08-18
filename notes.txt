@@ -2,3 +2,11 @@ React Course Guidelines (basic)
 
 1. create project folder
 2. open project folder in vscode
+
+
+Node
+
+1. install node js
+2. node = enable execution of Javascript outside of browser
+3. npm install <package name> = use to install package (collection of library; Example supersimpledev)
+4. search for packages in npm website (https://www.npmjs.com/)
